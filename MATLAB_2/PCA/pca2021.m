@@ -12,7 +12,7 @@
 clc
 clear
 load('pcaeksempel.mat')
-
+% hello worlds
 % Antall prinsipalkomponentar eg ønskjer å finne i matrisa X
 a = 2;
 
