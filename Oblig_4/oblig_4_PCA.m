@@ -13,10 +13,10 @@ meanX1 = mean(X1);                    % Gjennomsnittet av kvar kolonne i matrisa
 stdX1 = std(X1);                      % Standardavviket i kvar kolonne i matrisa X.
 
 for j = 1:m
-    X1(:,j) = X1(:,j) - meanX1(j);     % Trekker gjennomsnittet av kolonne j 
+    X1(:,j) = X1(:,j) - meanX1(j);    % Trekker gjennomsnittet av kolonne j 
                                       % frå kolonne j
     if stdX1(j)~=0
-        X1(:,j)= X1(:,j)/stdX1(j);     % Dividerer kolonne j med standardavviket 
+        X1(:,j)= X1(:,j)/stdX1(j);    % Dividerer kolonne j med standardavviket 
                                       % til kolonne j.
     end
 end
@@ -45,7 +45,7 @@ P = zeros(m,a);
 for i=1:a
     t_old = rand(n,1);
     p = Xnorm'*t_old;
-    p = p/norm(p); % Normaliserer p til lengde 1.
+    p = p/norm(p);                    % Normaliserer p til lengde 1.
     t = Xnorm*p;
     while (norm(t-t_old)>0.00001)
         p = Xnorm'*t;
@@ -53,8 +53,8 @@ for i=1:a
         t_old = t;
         t = Xnorm*p;
     end
-    T(:,i) = t;     % Scores
-    P(:,i) = p;     % Loading
+    T(:,i) = t;                       % Scores
+    P(:,i) = p;                       % Loading
     Xnorm = Xnorm - t*p';
 end
 
@@ -63,7 +63,7 @@ figure('Name','Scorematrisen før tilsetning av søtningstoff','NumberTitle','of
 scatter(T(:,1), T(:,2))
 text(T(:,1)+.1, T(:,2),objNames1)
 hold on
-plot(0,0,'or')  % Teiknar inn origo (som referanse)
+plot(0,0,'or')                        % Teiknar inn origo (som referanse)
 grid on
 
 % oppg d:
@@ -71,8 +71,9 @@ grid on
 
 % oppg e:
 % Finner forklart variasjon av dei a prinsipalkoeffisientane.
-trX = trace(X1'*X1);        % Trace av standardisert matrise X
-trT = trace(T'*T);          % Trace av scoresmatrisa
+
+trX = trace(X1'*X1);                  % Trace av standardisert matrise X
+trT = trace(T'*T);                    % Trace av scoresmatrisa
 fprintf('Forklart variasjon med %d prinsipalkomponenter er: %4.2f\n',a,trT/trX*100)
 
 % oppg f:
@@ -81,7 +82,7 @@ figure('Name','Loadingmatrisa før tilsetning av søtningstoff','NumberTitle','o
 scatter(P(:,1), P(:,2))
 text(P(:,1)+.01, P(:,2),varNames1)
 hold on
-plot(0,0,'or')  % Teiknar inn origo (som referanse)
+plot(0,0,'or')                        % Teiknar inn origo (som referanse)
 grid on
 
 % oppg e:
@@ -96,10 +97,10 @@ meanX2 = mean(X2);                    % Gjennomsnittet av kvar kolonne i matrisa
 stdX2 = std(X2);                      % Standardavviket i kvar kolonne i matrisa X.
 
 for j = 1:m
-    X2(:,j) = X2(:,j) - meanX2(j);     % Trekker gjennomsnittet av kolonne j 
+    X2(:,j) = X2(:,j) - meanX2(j);    % Trekker gjennomsnittet av kolonne j 
                                       % frå kolonne j
     if stdX2(j)~=0
-        X2(:,j)= X2(:,j)/stdX2(j);     % Dividerer kolonne j med standardavviket 
+        X2(:,j)= X2(:,j)/stdX2(j);    % Dividerer kolonne j med standardavviket 
                                       % til kolonne j.
     end
 end
@@ -113,7 +114,7 @@ P = zeros(m,a);
 for i=1:a
     t_old = rand(n,1);
     p = Xnorm'*t_old;
-    p = p/norm(p); % Normaliserer p til lengde 1.
+    p = p/norm(p);                    % Normaliserer p til lengde 1.
     t = Xnorm*p;
     while (norm(t-t_old)>0.00001)
         p = Xnorm'*t;
@@ -121,8 +122,8 @@ for i=1:a
         t_old = t;
         t = Xnorm*p;
     end
-    T(:,i) = t;     % Scores
-    P(:,i) = p;     % Loading
+    T(:,i) = t;                       % Scores
+    P(:,i) = p;                       % Loading
     Xnorm = Xnorm - t*p';
 end
 
@@ -131,7 +132,7 @@ figure('Name','Scorematrisen etter tilsetning av søtningstoff','NumberTitle','o
 scatter(T(:,1), T(:,2))
 text(T(:,1)+.1, T(:,2),objNames2)
 hold on
-plot(0,0,'or')  % Teiknar inn origo (som referanse)
+plot(0,0,'or')                        % Teiknar inn origo (som referanse)
 grid on
 
 % Plotter loadingmatrisa.
@@ -139,7 +140,7 @@ figure('Name','Loadingmatrisa etter tilsetning av søtningstoff','NumberTitle','
 scatter(P(:,1), P(:,2))
 text(P(:,1)+.01, P(:,2),varNames2)
 hold on
-plot(0,0,'or')  % Teiknar inn origo (som referanse)
+plot(0,0,'or')                        % Teiknar inn origo (som referanse)
 grid on
 
 % ser ut som når det blir tilsatt ekstra stoff i kakaoen får den mer smak og tekstur som
